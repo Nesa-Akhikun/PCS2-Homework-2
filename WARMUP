@@ -1,0 +1,281 @@
+Solve Me First:
+
+def solveMeFirst(a,b):
+    return a+b
+
+if __name__ == '__main__':
+    num1 = int(input())
+    num2 = int(input())
+    res = solveMeFirst(num1,num2)
+    print(res)
+
+
+
+
+
+Simple Array Sum:
+
+import math
+import os
+import random
+import re
+import sys
+
+def simpleArraySum(ar):
+    sum = 0
+
+    for i in ar:
+        sum = sum + i
+    
+    return(sum)
+        
+if __name__ == '__main__':
+    ar_count = int(input().strip())
+    ar = list(map(int, input().rstrip().split()))
+    result = simpleArraySum(ar)
+    print(result)
+
+
+
+
+
+Compare the Triplets:
+
+import math
+import os
+import random
+import re
+import sys
+
+def compareTriplets(a, b):
+    out = [0, 0]
+    for i in range(len(a)):
+        if a[i] == b[i]: continue
+        out[a[i] < b[i]] += 1
+    return out
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = list(map(int, input().rstrip().split()))
+
+    b = list(map(int, input().rstrip().split()))
+
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+
+
+
+
+A Very Big Sum:
+
+import math
+import os
+import random
+import re
+import sys
+
+def aVeryBigSum(ar):
+    sumn = 0 
+    for i in range(len(ar)):
+        sumn += ar[i]
+    return sumn
+
+ar = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005]  
+print(aVeryBigSum(ar))
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input().strip())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = aVeryBigSum(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+Diagonal Difference:
+
+import math
+import os
+import random
+import re
+import sys
+
+def diagonalDifference(arr):
+    sum1 = 0
+    sum2 = 0
+    for k in range(len(arr)):
+        sum1+=arr[k][k]
+        sum2+=arr[k][len(arr)-1-k]
+        
+    return(abs(sum1-sum2))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+Plus Minus:
+    
+import math
+import os
+import random
+import re
+import sys
+
+def plusMinus(arr):
+    positive, negative, zero = 0, 0, 0
+    
+    for i in arr:
+        if i > 0:
+            positive += 1
+        elif i < 0:
+            negative += 1
+        else:
+            zero += 1
+        
+    print(round(positive/len(arr), 6))
+    print(round(negative/len(arr), 6))
+    print(round(zero/len(arr), 6))
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
+    
+    
+    
+
+Staircase:
+    
+import math
+import os
+import random
+import re
+import sys
+
+
+def staircase(n):
+    sp_count = n-1
+    for i in range(n+1):
+        if i == 0:
+            pass
+        else:
+            print(" "*sp_count+"#"*i)
+            sp_count-=1
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    staircase(n)
+
+
+
+
+
+Mini-Max Sum:
+
+import math
+import os
+import random
+import re
+import sys
+
+def miniMaxSum(arr):
+    arr.sort()
+    print('{min} {max}'.format(min=sum(arr[:-1]),max=sum(arr[1:])))
+if __name__ == '__main__':
+
+    arr = list(map(int, input().rstrip().split()))
+
+    miniMaxSum(arr)
+
+
+
+
+
+Birthday Cake Candles:
+
+import math
+import os
+import random
+import re
+import sys
+
+
+def birthdayCakeCandles(candles):
+    from collections import Counter
+    c=Counter(candles)
+    return c.most_common(1)[0][1]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    candles_count = int(input().strip())
+
+    candles = list(map(int, input().rstrip().split()))
+
+    result = birthdayCakeCandles(candles)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+Time Conversion:
+
+import math
+import os
+import random
+import re
+import sys
+
+def timeConversion(s):
+    import datetime
+    t=datetime.datetime.strptime(s, "%I:%M:%S%p")
+    return datetime.datetime.strftime(t, "%H:%M:%S")
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+
+
+
