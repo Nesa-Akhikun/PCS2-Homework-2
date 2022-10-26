@@ -1,0 +1,60 @@
+Super Reduced String:
+
+import math
+import os
+import random
+import re
+import sys
+
+def superReducedString(s):
+    while 1:
+        flag = False
+        
+        for i in range(len(s)-1):
+            if s[i]==s[i+1]:
+                s = s[:i]+s[i+2:]
+                flag = True
+                break
+                
+        if flag == False:
+            break
+    if len(s) == 0:
+        return 'Empty String'
+    return s
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = superReducedString(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+
+
+
+
+CamelCase:
+
+import math
+import os
+import random
+import re
+import sys
+
+
+def camelcase(s):
+    return len(re.findall(r"[A-Z]{0,1}[a-z]+", s))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = camelcase(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
