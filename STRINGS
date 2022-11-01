@@ -58,3 +58,116 @@ if __name__ == '__main__':
     fptr.write(str(result) + '\n')
 
     fptr.close()
+
+
+
+
+
+Strong Password:
+
+import math
+import os
+import random
+import re
+import sys
+
+def minimumNumber(n, password):
+    uc  = 0 if re.search(r'[A-Z]', password) else 1
+    lc  = 0 if re.search(r'[a-z]', password) else 1
+    num = 0 if re.search(r'[0-9]', password) else 1
+    spc = 0 if re.search(r'[!@#$%^&*()\-+]', password) else 1
+
+    count = uc + lc + num + spc
+    return max(6 - n, count)
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    password = input()
+
+    answer = minimumNumber(n, password)
+
+    fptr.write(str(answer) + '\n')
+
+    fptr.close()
+
+
+
+
+
+Two Characters:
+
+import math
+import os
+import random
+import re
+import sys
+
+def alternate(s):
+    a=list(set(s))
+    ans=0
+    for x in range(len(a)-1):
+        for y in range(1,len(a)-x):
+            me=[a[x],a[x+y]]
+            nit=""
+            for t in s:
+                if (t in me):
+                    if (nit=="" or t!=nit[-1]):
+                        nit+=t
+                    else:
+                        nit=""
+                        break
+            if len(nit)>ans:
+                ans=len(nit)
+    return ans
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    l = int(input().strip())
+
+    s = input()
+
+    result = alternate(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+Caesar Cipher:
+
+import math
+import os
+import random
+import re
+import sys
+
+def caesarCipher(s, k):
+    newText=""
+    for letter in s:
+        if letter in "abcdefghijklmnopqrstuvwxyz":
+            newText +=chr(97+(ord(letter)-97+k)%26)
+        elif letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            newText +=chr(65+(ord(letter)-65+k)%26)
+        else: newText += letter
+    return newText
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    s = input()
+
+    k = int(input().strip())
+
+    result = caesarCipher(s, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
